@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+  border-radius: 5px;
+  margin-top: 150px;
+}
+
+button {
+  display: block;
+  padding: 15px;
+  margin: 10px auto;
+  border: none;
+  background-color: blue;
+  color: #fff;
+}
+
+button:hover {
+  background-color: rgb(1, 1, 164);
+}
+
+.showLoader {
+  animation: show 500ms forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    /* transform: translateY(-100%); */
+  }
+
+
+  100% {
+    opacity: 1;
+    /* transform: translateY(0%); */
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader.entering,
+.loader-show {
+  animation: show 1500ms forwards;
+}
+
+.loader.entered,
+.loader-rotate {
+  /* animation: rotate 500ms infinite; */
+}
+
+.loader.exiting,
+.loader-hide {
+  animation: show 1500ms reverse forwards;
+}
+
+.loader.exited,
+.loader-exit {
+  opacity: 0;
+}
+
+.modal__overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fff;
+  box-shadow: 0 0 15px;
+  width: 70%;
+  max-width: 700px;
+  padding: 30px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  display: block;
+  right: -30px;
+  top: -15px;
+  font-size: 2em;
+  color: #fff;
+  transition: rotate(45deg);
+  cursor: pointer;
+}
+
+.close:hover {
+  color: rgb(203, 203, 203);
+}
+
+@keyframes showModalWindow {}
+
+@keyframes openOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.opening__overlay {
+  animation: openOverlay 300ms forwards;
+}
+
+.closing__overlay {
+  animation: openOverlay 300ms reverse;
+}
+
+@keyframes openModal {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.opening__modal {
+  animation: openModal 500ms forwards;
+}
+
+.closing__modal {
+  animation: openModal 500ms reverse;
+}
+
+/* ********* Example 4 */
+
+ul {
+  width: 70%;
+  margin: 10px auto;
+  list-style: none;
+
+}
+
+li {
+  background-color: #face08;
+  padding: 7px 15px;
+  margin: 3px 0;
+  border-radius: 5px;
+}
+
+li:hover {
+  background-color: #b0910a;
+}
+
+@keyframes deleteItem {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.exit-active {
+  animation: deleteItem 500ms;
+}
